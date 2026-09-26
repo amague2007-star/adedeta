@@ -1,0 +1,219 @@
+/* ================= ADMIN DASHBOARD ================= */
+
+.admin-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.admin-stat-card {
+  padding: 20px;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+}
+
+.admin-stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.admin-stat-card.blue {
+  background: linear-gradient(135deg, #0088cc, #00b4d8);
+}
+
+.admin-stat-card.orange {
+  background: linear-gradient(135deg, #ff8c00, #ffa500);
+}
+
+.admin-stat-card.purple {
+  background: linear-gradient(135deg, #8e44ad, #a569bd);
+}
+
+.admin-stat-card.green {
+  background: linear-gradient(135deg, #28a745, #4cd964);
+}
+
+.admin-stat-value {
+  display: block;
+  font-size: 2.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.admin-stat-label {
+  display: block;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.95;
+}
+
+/* ================= ONGLETS ================= */
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.admin-tab {
+  flex: 1;
+  padding: 12px 10px;
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.admin-tab:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.admin-tab.active {
+  background: white;
+  color: #ff8c00;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= CONTENU DES ONGLETS ================= */
+.tab-content {
+  min-height: 200px;
+}
+
+.loading-text {
+  text-align: center;
+  color: #888;
+  padding: 40px 20px;
+  font-style: italic;
+}
+
+/* ================= CARTES ITEMS ================= */
+.admin-item {
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  border-left: 4px solid #ff8c00;
+  transition: all 0.3s;
+}
+
+.admin-item:hover {
+  background: #fff4e6;
+}
+
+.admin-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.admin-item-name {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.05em;
+}
+
+.admin-item-id {
+  font-size: 0.8em;
+  color: #999;
+  background: #eee;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.admin-item-info {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 4px;
+}
+
+.admin-item-info strong {
+  color: #333;
+}
+
+.admin-item-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.btn-delete {
+  padding: 8px 15px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-delete:hover {
+  background: #c82333;
+  transform: translateY(-2px);
+}
+
+/* ================= BADGES DE STATUT ================= */
+.status-badge-admin {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-badge-admin.requested {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-badge-admin.accepted {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.status-badge-admin.ongoing {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-badge-admin.completed {
+  background: #d4edda;
+  color: #155724;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 480px) {
+  .admin-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-tabs {
+    flex-direction: column;
+  }
+
+  .admin-stat-value {
+    font-size: 1.8em;
+  }
+}

@@ -12,7 +12,7 @@ app.use(express.json());
 // ============================================================
 // SERVIR LE FRONTEND (HTML, CSS, JS)
 // ============================================================
-app.use(express.static(path.join(__dirname, '..', 'frontend')));
+app.use(express.static(__dirname));
 
 // ============================================================
 // ROUTE DE TEST
@@ -393,6 +393,4 @@ app.delete('/admin/user/:id', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log('Serveur ADEDETA demarre sur http://localhost:' + PORT);
-  console.log('Frontend : http://localhost:' + PORT + '/index.html');
-  console.log('Admin    : http://localhost:' + PORT + '/admin.html');
 });

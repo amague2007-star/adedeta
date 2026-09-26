@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADEDETA - Taxi Moto Tahoua</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= BARRE DE NAVIGATION ================= -->
+  <nav class="topnav">
+    <a href="index.html" class="topnav-brand">ADEDETA</a>
+    <div class="topnav-links">
+      <a href="index.html" class="topnav-link active">Accueil</a>
+      <a href="admin.html" class="topnav-link">Admin</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <header>
+      <h1>ADEDETA</h1>
+      <p class="tagline">Taxi Moto a Tahoua</p>
+    </header>
+
+    <!-- ================= SWITCH CLIENT / CONDUCTEUR ================= -->
+    <div class="mode-switch">
+      <a href="#" id="switchToClient" class="mode-link active">Client</a>
+      <a href="#" id="switchToDriver" class="mode-link">Conducteur</a>
+    </div>
+
+    <!-- ================= ECRAN 1 : INSCRIPTION CLIENT ================= -->
+    <div id="screen-register" class="screen">
+      <div class="card">
+        <h2>Inscription Client</h2>
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="reg-name">Votre nom</label>
+            <input type="text" id="reg-name" placeholder="Ex: Amadou Ibrahim" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-phone">Votre telephone</label>
+            <input type="tel" id="reg-phone" placeholder="Ex: 96999999" required>
+          </div>
+          <button type="submit" class="btn-primary">S'inscrire</button>
+        </form>
+        <div id="register-message" class="message"></div>
+        <p class="switch-link">
+          Deja inscrit ?
+          <a href="#" id="linkToLogin">Se connecter</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- ================= ECRAN 2 : LOGIN CLIENT ================= -->
+    <div id="screen-login" class="screen" style="display:none;">
+      <div class="card">
+        <h2>Connexion Client</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="login-phone">Votre numero de telephone</label>
+            <input type="tel" id="login-phone" placeholder="Ex: 96999999" required>
+          </div>
+          <button type="submit" class="btn-primary">Se connecter</button>
+        </form>
+        <div id="login-message" class="message"></div>
+        <p class="switch-link">
+          Pas encore inscrit ?
+          <a href="#" id="linkToRegister">S'inscrire</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- ================= ECRAN 3 : COMMANDER (CLIENT) ================= -->
+    <div id="screen-order" class="screen" style="display:none;">
+      <div class="card">
+        <div class="user-info">
+          <p>Bonjour <strong id="userName">--</strong></p>
+          <a href="#" id="logoutLink" class="logout">Deconnexion</a>
+        </div>
+        <h2>Commander un ADEDETA</h2>
+        <form id="orderForm">
+
+          <div class="form-group">
+            <label>Point de depart</label>
+            <div class="input-mode-toggle">
+              <button type="button" id="pickupModeList" class="mode-btn active">Liste</button>
+              <button type="button" id="pickupModeManual" class="mode-btn">Manuel</button>
+            </div>
+            <select id="pickup" required>
+              <option value="">-- Choisir un lieu --</option>
+              <option value="Grand Marche">Grand Marche (centre)</option>
+              <option value="Hotel Tarka">Hotel Tarka</option>
+              <option value="Prefecture">Prefecture</option>
+              <option value="Quartier Bagagi">Quartier Bagagi</option>
+              <option value="Hopital de Tahoua">Hopital de Tahoua</option>
+              <option value="Quartier Toudou">Quartier Toudou</option>
+              <option value="Gare Routiere">Gare Routiere</option>
+              <option value="Quartier Sabon Gari">Quartier Sabon Gari</option>
+              <option value="Stade de Tahoua">Stade de Tahoua</option>
+              <option value="Lycee Issa Korombe">Lycee Issa Korombe</option>
+              <option value="Universite">Universite</option>
+              <option value="Marche de betail">Marche de betail</option>
+              <option value="Aeroport">Aeroport</option>
+            </select>
+            <input type="text" id="pickupManual" placeholder="Ex: Quartier Djajiri, pres du marche" style="display:none;">
+          </div>
+
+          <div class="form-group">
+            <label>Destination</label>
+            <div class="input-mode-toggle">
+              <button type="button" id="destModeList" class="mode-btn active">Liste</button>
+              <button type="button" id="destModeManual" class="mode-btn">Manuel</button>
+            </div>
+            <select id="destination" required>
+              <option value="">-- Choisir un lieu --</option>
+              <option value="Grand Marche">Grand Marche (centre)</option>
+              <option value="Hotel Tarka">Hotel Tarka</option>
+              <option value="Prefecture">Prefecture</option>
+              <option value="Quartier Bagagi">Quartier Bagagi</option>
+              <option value="Hopital de Tahoua">Hopital de Tahoua</option>
+              <option value="Quartier Toudou">Quartier Toudou</option>
+              <option value="Gare Routiere">Gare Routiere</option>
+              <option value="Quartier Sabon Gari">Quartier Sabon Gari</option>
+              <option value="Stade de Tahoua">Stade de Tahoua</option>
+              <option value="Lycee Issa Korombe">Lycee Issa Korombe</option>
+              <option value="Universite">Universite</option>
+              <option value="Marche de betail">Marche de betail</option>
+              <option value="Aeroport">Aeroport</option>
+            </select>
+            <input type="text" id="destinationManual" placeholder="Ex: Quartier Bagagi, pres de la mosquee" style="display:none;">
+          </div>
+
+          <div class="form-group">
+            <label>Distance estimee</label>
+            <div class="distance-box">
+              <span id="estimatedDistance">0</span> km
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Prix estime (grille ADEDETA)</label>
+            <div class="price-box">
+              <span id="estimatedPrice">0</span> FCFA
+            </div>
+            <p style="text-align:center; font-size:0.8em; color:#888; margin-top:8px;">
+              0-2 km : 200 | 2-5 km : 300 | 5-10 km : 1000 | 10-15 km : 1500
+            </p>
+          </div>
+
+          <button type="submit" class="btn-primary">Commander maintenant</button>
+        </form>
+        <div id="order-message" class="message"></div>
+      </div>
+    </div>
+
+    <!-- ================= ECRAN 4 : SUIVI (CLIENT) ================= -->
+    <div id="screen-tracking" class="screen" style="display:none;">
+      <div class="card">
+        <h2>Votre course</h2>
+        <div class="tracking-status">
+          <div class="status-badge" id="statusBadge">En attente</div>
+        </div>
+        <p class="track-info">
+          <strong>Depart :</strong> <span id="trackPickup">--</span>
+        </p>
+        <p class="track-info">
+          <strong>Destination :</strong> <span id="trackDestination">--</span>
+        </p>
+        <p class="track-info">
+          <strong>Prix :</strong> <span id="trackPrice">--</span> FCFA
+        </p>
+        <p class="track-note">
+          Un adedeta va bientot accepter votre course...
+        </p>
+        <button id="btnNewRide" class="btn-primary btn-secondary">
+          Commander une autre course
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= ECRAN CONDUCTEUR : INSCRIPTION ================= -->
+    <div id="screen-driver-register" class="screen" style="display:none;">
+      <div class="card">
+        <h2>Devenir ADEDETA</h2>
+        <p style="color:#666; margin-bottom:20px;">
+          Inscris-toi pour recevoir des courses a Tahoua
+        </p>
+        <form id="driverRegisterForm">
+          <div class="form-group">
+            <label for="drv-name">Votre nom complet</label>
+            <input type="text" id="drv-name" placeholder="Ex: Moussa Ali" required>
+          </div>
+          <div class="form-group">
+            <label for="drv-phone">Votre telephone</label>
+            <input type="tel" id="drv-phone" placeholder="Ex: 97000000" required>
+          </div>
+          <div class="form-group">
+            <label for="drv-plate">Plaque de votre moto</label>
+            <input type="text" id="drv-plate" placeholder="Ex: 1234-TH" required>
+          </div>
+          <button type="submit" class="btn-primary">Devenir ADEDETA</button>
+        </form>
+        <div id="driver-register-message" class="message"></div>
+        <p class="switch-link">
+          Deja conducteur ?
+          <a href="#" id="linkToDriverLogin">Se connecter</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- ================= ECRAN CONDUCTEUR : LOGIN ================= -->
+    <div id="screen-driver-login" class="screen" style="display:none;">
+      <div class="card">
+        <h2>Connexion ADEDETA</h2>
+        <form id="driverLoginForm">
+          <div class="form-group">
+            <label for="drv-login-phone">Votre numero de telephone</label>
+            <input type="tel" id="drv-login-phone" placeholder="Ex: 97000000" required>
+          </div>
+          <button type="submit" class="btn-primary">Se connecter</button>
+        </form>
+        <div id="driver-login-message" class="message"></div>
+        <p class="switch-link">
+          Pas encore conducteur ?
+          <a href="#" id="linkToDriverRegister">Devenir ADEDETA</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- ================= ECRAN CONDUCTEUR : COURSES DISPONIBLES ================= -->
+    <div id="screen-driver-home" class="screen" style="display:none;">
+      <div class="card">
+        <div class="user-info">
+          <p>Bonjour <strong id="driverName">--</strong></p>
+          <a href="#" id="driverLogoutLink" class="logout">Deconnexion</a>
+        </div>
+
+        <div class="driver-stats">
+          <div class="stat-item">
+            <span class="stat-value" id="driverTotalRides">0</span>
+            <span class="stat-label">Courses</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value" id="driverEarnings">0</span>
+            <span class="stat-label">FCFA</span>
+          </div>
+        </div>
+
+        <h2>Courses disponibles</h2>
+        <div id="availableRides" class="rides-list">
+          <p class="no-rides">Chargement...</p>
+        </div>
+        <button id="btnRefreshRides" class="btn-primary btn-secondary">
+          Actualiser les courses
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= ECRAN CONDUCTEUR : COURSE EN COURS ================= -->
+    <div id="screen-driver-active" class="screen" style="display:none;">
+      <div class="card">
+        <h2>Course en cours</h2>
+        <div class="tracking-status">
+          <div class="status-badge" id="driverRideStatus">Acceptee</div>
+        </div>
+        <p class="track-info">
+          <strong>Client :</strong> <span id="activeClientName">--</span>
+        </p>
+        <p class="track-info">
+          <strong>Telephone :</strong> <span id="activeClientPhone">--</span>
+        </p>
+        <p class="track-info">
+          <strong>Prix :</strong> <span id="activeRidePrice">--</span> FCFA
+        </p>
+
+        <button id="btnStartRide" class="btn-primary">
+          Demarrer la course
+        </button>
+        <button id="btnCompleteRide" class="btn-primary btn-secondary" style="display:none;">
+          Terminer la course
+        </button>
+      </div>
+    </div>
+
+    <footer>
+      <p>2026 ADEDETA - Tahoua, Niger</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

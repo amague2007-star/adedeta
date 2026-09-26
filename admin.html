@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADEDETA - Administration</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- ================= BARRE DE NAVIGATION ================= -->
+  <nav class="topnav">
+    <a href="index.html" class="topnav-brand">ADEDETA</a>
+    <div class="topnav-links">
+      <a href="index.html" class="topnav-link">Accueil</a>
+      <a href="admin.html" class="topnav-link active">Admin</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <header>
+      <h1>ADEDETA ADMIN</h1>
+      <p class="tagline">Tableau de bord</p>
+    </header>
+
+    <!-- ================= ECRAN LOGIN ADMIN ================= -->
+    <div id="admin-login-screen" class="screen">
+      <div class="card">
+        <h2>Connexion Admin</h2>
+        <form id="adminLoginForm">
+          <div class="form-group">
+            <label for="admin-password">Mot de passe</label>
+            <input type="password" id="admin-password" placeholder="Entrez le mot de passe" required>
+          </div>
+          <button type="submit" class="btn-primary">Se connecter</button>
+        </form>
+        <div id="admin-login-message" class="message"></div>
+      </div>
+    </div>
+
+    <!-- ================= ECRAN DASHBOARD ================= -->
+    <div id="admin-dashboard" class="screen" style="display:none;">
+
+      <div class="admin-topbar">
+        <span>Admin connecte</span>
+        <a href="#" id="adminLogout" class="logout">Deconnexion</a>
+      </div>
+
+      <div class="admin-stats-grid">
+        <div class="admin-stat-card blue">
+          <span class="admin-stat-value" id="statClients">0</span>
+          <span class="admin-stat-label">Clients</span>
+        </div>
+        <div class="admin-stat-card orange">
+          <span class="admin-stat-value" id="statDrivers">0</span>
+          <span class="admin-stat-label">Conducteurs</span>
+        </div>
+        <div class="admin-stat-card purple">
+          <span class="admin-stat-value" id="statRides">0</span>
+          <span class="admin-stat-label">Courses</span>
+        </div>
+        <div class="admin-stat-card green">
+          <span class="admin-stat-value" id="statEarnings">0</span>
+          <span class="admin-stat-label">FCFA gagnes</span>
+        </div>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="clients">Clients</button>
+        <button class="admin-tab" data-tab="drivers">Conducteurs</button>
+        <button class="admin-tab" data-tab="rides">Courses</button>
+      </div>
+
+      <div class="card">
+        <div id="tab-clients" class="tab-content">
+          <p class="loading-text">Chargement...</p>
+        </div>
+        <div id="tab-drivers" class="tab-content" style="display:none;">
+          <p class="loading-text">Chargement...</p>
+        </div>
+        <div id="tab-rides" class="tab-content" style="display:none;">
+          <p class="loading-text">Chargement...</p>
+        </div>
+      </div>
+
+      <button id="btnRefreshAdmin" class="btn-primary btn-secondary">
+        Actualiser les donnees
+      </button>
+
+    </div>
+
+    <footer>
+      <p>2026 ADEDETA - Tahoua, Niger</p>
+    </footer>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
